@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+    <title>Zair Bulos | Portfolio</title>
+
+    <meta
+      name="description"
+      content="Portfolio de Zair Bulos, Backend Developer con experiencia en Java, Spring Boot y arquitecturas escalables. Construyo soluciones alineadas a objetivos de negocio."
+    />
+    <meta
+      name="keywords"
+      content="Zair Bulos, Backend developer, Java developer, Spring Boot, JPA, Hibernate, PostgreSQL, Docker, desarrollo backend, portfolio"
+    />
+    <meta name="author" content="Zair Bulos" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://zairbulos.github.io/" />
+
+    <meta
+      property="og:title"
+      content="Zair Bulos | Backend Developer — Java & Spring Boot"
+    />
+    <meta
+      property="og:description"
+      content="Construyendo soluciones escalables y alineadas a negocio con el ecosistema Java. Especializado en Spring Boot, PostgreSQL y arquitecturas modulares."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zairbulos.github.io/" />
+    <meta property="og:site_name" content="Zair Bulos · Portfolio" />
+    <meta property="og:locale" content="es_AR" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://zairbulos.github.io/#person",
+            "name": "Zair Bulos",
+            "url": "https://zairbulos.github.io/",
+            "jobTitle": "Backend Developer",
+            "description": "Backend Developer especializado en Java, Spring Boot y arquitecturas escalables. Enfocado en soluciones alineadas a objetivos de negocio.",
+            "knowsAbout": [
+              "Java",
+              "Spring Boot",
+              "JPA",
+              "Hibernate",
+              "PostgreSQL",
+              "MySQL",
+              "Docker",
+              "JUnit",
+              "Mockito",
+              "TypeScript",
+              "React",
+              "Vue.js",
+              "Node.js"
+            ],
+            "sameAs": [
+              "https://github.com/ZairBulos",
+              "https://www.linkedin.com/in/zairbulos/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://zairbulos.github.io/#website",
+            "url": "https://zairbulos.github.io/",
+            "name": "Zair Bulos · Portfolio",
+            "description": "Portfolio profesional de Zair Bulos, Backend Developer.",
+            "inLanguage": "es",
+            "author": { "@id": "https://zairbulos.github.io/#person" }
+          }
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=DM+Serif+Display&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --cream: #f8f7f2;
+        --white: #fefefa;
+        --black: #0e0e0d;
+        --mid: #6e6e6b;
+        --light: #a5a5a2;
+        --accent: #0e0e0d;
+      }
+
+      body {
+        font-family: "JetBrains Mono", monospace;
+        background: var(--cream);
+        color: var(--black);
+        min-height: 100vh;
+        padding: 0;
+      }
+
+      .portfolio {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 4rem 2rem 6rem;
+      }
+
+      .prompt-line {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 3rem;
+      }
+
+      .prompt-symbol {
+        color: var(--light);
+        font-size: 13px;
+      }
+
+      .cursor {
+        width: 9px;
+        height: 16px;
+        background: var(--black);
+        display: inline-block;
+        animation: blink 1.1s step-end infinite;
+        vertical-align: middle;
+        margin-left: 2px;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .hero {
+        margin-bottom: 4rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid rgba(14, 14, 13, 0.08);
+      }
+
+      .git-branch {
+        font-size: 11px;
+        color: var(--light);
+        letter-spacing: 0.04em;
+        margin-bottom: 0.5rem;
+      }
+
+      .git-branch span {
+        color: var(--mid);
+      }
+
+      .hero-name {
+        font-family: "DM Serif Display", serif;
+        font-size: 3.2rem;
+        font-weight: 400;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: var(--black);
+        margin-bottom: 1rem;
+      }
+
+      .hero-role {
+        font-size: 12px;
+        color: var(--mid);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-bio {
+        font-size: 13px;
+        color: var(--mid);
+        line-height: 1.8;
+        max-width: 520px;
+        font-weight: 300;
+      }
+
+      .hero-bio .highlight {
+        color: var(--black);
+        font-weight: 400;
+      }
+
+      .links {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .link {
+        font-size: 12px;
+        color: var(--light);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: color 0.2s;
+        cursor: pointer;
+      }
+
+      .link:hover {
+        color: var(--black);
+      }
+
+      .link::before {
+        content: "↗";
+        font-size: 10px;
+      }
+
+      .section {
+        margin-bottom: 3.5rem;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 1.5rem;
+      }
+
+      .git-cmd {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: var(--light);
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .git-cmd .cmd {
+        color: var(--black);
+      }
+      .git-cmd .flag {
+        color: var(--mid);
+      }
+
+      .divider {
+        flex: 1;
+        height: 1px;
+        background: rgba(14, 14, 13, 0.07);
+      }
+
+      .log-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .log-entry {
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 1rem;
+        padding: 1.1rem 0;
+        border-bottom: 1px solid rgba(14, 14, 13, 0.06);
+        transition: all 0.15s;
+      }
+
+      .log-entry:last-child {
+        border-bottom: none;
+      }
+
+      .log-entry:hover {
+        padding-left: 8px;
+      }
+
+      .log-entry:hover .commit-msg {
+        color: var(--mid);
+      }
+
+      .log-entry.has-link {
+        cursor: pointer;
+      }
+
+      .commit-hash {
+        font-size: 11px;
+        color: var(--light);
+        padding-top: 2px;
+        letter-spacing: 0.02em;
+        font-weight: 400;
+      }
+
+      .commit-msg {
+        font-size: 13px;
+        color: var(--black);
+        font-weight: 400;
+        margin-bottom: 4px;
+        line-height: 1.4;
+        transition: color 0.15s;
+      }
+
+      .commit-meta {
+        font-size: 11px;
+        color: var(--light);
+        font-weight: 300;
+      }
+
+      .commit-meta .date {
+        color: var(--mid);
+      }
+
+      .stack-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1px;
+        background: rgba(14, 14, 13, 0.08);
+        border: 1px solid rgba(14, 14, 13, 0.08);
+      }
+
+      .stack-item {
+        background: var(--cream);
+        padding: 0.9rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: background 0.15s;
+        cursor: default;
+        min-width: 0;
+      }
+
+      .stack-item:hover {
+        background: var(--white);
+      }
+
+      .stack-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        background: var(--light);
+      }
+
+      .stack-dot.primary {
+        background: var(--black);
+      }
+
+      .stack-dot.secondary {
+        background: var(--mid);
+      }
+
+      .stack-name {
+        font-size: 12px;
+        color: var(--black);
+        font-weight: 400;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-width: 0;
+      }
+
+      .legend {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        color: var(--light);
+        letter-spacing: 0.03em;
+      }
+
+      .legend-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        display: inline-block;
+        flex-shrink: 0;
+      }
+
+      .legend-dot.d-primary {
+        background: var(--black);
+      }
+      .legend-dot.d-secondary {
+        background: var(--mid);
+      }
+      .legend-dot.d-tertiary {
+        background: var(--light);
+      }
+
+      .contact-block {
+        background: var(--black);
+        padding: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .contact-text {
+        font-size: 12px;
+        color: rgba(254, 250, 250, 0.4);
+        line-height: 1.7;
+      }
+
+      .contact-text .email-display {
+        display: block;
+        font-size: 14px;
+        color: var(--white);
+        margin-top: 4px;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+      }
+
+      .contact-link {
+        font-size: 11px;
+        color: rgba(254, 250, 250, 0.4);
+        letter-spacing: 0.06em;
+        text-decoration: none;
+        transition: color 0.2s;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: inherit;
+        padding: 0;
+      }
+
+      .contact-link:hover {
+        color: rgba(254, 250, 250, 0.85);
+      }
+
+      .status-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--black);
+        padding: 6px 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        font-size: 11px;
+        color: rgba(254, 250, 250, 0.35);
+        z-index: 100;
+      }
+
+      .status-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .status-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: rgba(254, 250, 250, 0.2);
+      }
+
+      .status-dot.green {
+        background: #6aad6a;
+      }
+      .status-dot.amber {
+        background: #c9a452;
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(12px);
+        animation: fadeIn 0.5s forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .fade-in:nth-child(2) {
+        animation-delay: 0.12s;
+      }
+      .fade-in:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .fade-in:nth-child(4) {
+        animation-delay: 0.28s;
+      }
+      .fade-in:nth-child(5) {
+        animation-delay: 0.36s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ─── MAIN ─────────────────────────────────────────────────────── -->
+    <main class="portfolio" role="main">
+      <div class="prompt-line" aria-hidden="true">
+        <span class="prompt-symbol">~/portfolio</span>
+        <span class="prompt-symbol" style="color: #a5a5a2">on</span>
+        <span class="prompt-symbol" style="color: #6e6e6b">⎇ main</span>
+        <span class="cursor"></span>
+      </div>
+
+      <!-- ABOUT ─────────────────────────────────────────────────────── -->
+      <section class="hero fade-in" aria-label="Sobre mí">
+        <p class="git-branch" aria-hidden="true">
+          origin/<span>main</span> · ahead 0 · behind 0
+        </p>
+        <h1 class="hero-name">Zair<br />Bulos</h1>
+        <p class="hero-role">Backend Developer · Java &amp; Spring Boot</p>
+        <p class="hero-bio">
+          Asumo la
+          <strong class="highlight">responsabilidad del producto</strong> más
+          allá del código. Diseño soluciones alineadas a objetivos de negocio,
+          priorizando una base técnica sólida que permita al producto
+          <strong class="highlight">crecer y adaptarse</strong> con agilidad.
+        </p>
+        <nav class="links" aria-label="Perfiles profesionales">
+          <a
+            class="link"
+            href="https://github.com/ZairBulos"
+            target="_blank"
+            rel="noopener noreferrer me"
+            aria-label="GitHub de Zair Bulos"
+          >
+            github.com/ZairBulos
+          </a>
+          <a
+            class="link"
+            href="https://www.linkedin.com/in/zairbulos/"
+            target="_blank"
+            rel="noopener noreferrer me"
+            aria-label="LinkedIn de Zair Bulos"
+          >
+            linkedin.com/in/zairbulos
+          </a>
+        </nav>
+      </section>
+
+      <!-- EXPERIENCE ────────────────────────────────────────────────── -->
+      <section class="section fade-in" aria-label="Experiencia">
+        <div class="section-header">
+          <span class="git-cmd" aria-hidden="true">
+            <span class="cmd">git log</span>
+            <span class="flag">--oneline</span>
+            <span class="flag">--experience</span>
+          </span>
+          <div class="divider" role="separator"></div>
+        </div>
+        <ol class="log-list" aria-label="Historial de experiencia">
+          <li class="log-entry">
+            <span class="commit-hash" aria-hidden="true">e8bfc90</span>
+            <div>
+              <h2 class="commit-msg">feat: Full Stack Developer @ Fusap</h2>
+              <p class="commit-meta">
+                <time class="date" datetime="2025-07">jul. 2025</time>
+                <span aria-hidden="true"> → </span>
+                <span>actualidad</span>
+                · Java (8/11), TypeScript, JavaScript, Spring Boot, Node.js,
+                Vue.js 2, React Native, Next.js, PostgreSQL
+              </p>
+            </div>
+          </li>
+          <li class="log-entry">
+            <span class="commit-hash" aria-hidden="true">16be34e</span>
+            <div>
+              <h2 class="commit-msg">
+                build: Java Developer @ Foo Talent Group
+              </h2>
+              <p class="commit-meta">
+                <time class="date" datetime="2025-04">abr. 2025</time>
+                <span aria-hidden="true"> → </span>
+                <time datetime="2025-05">may. 2025</time>
+                · Java 17, Spring Boot, PostgreSQL, Docker, TypeScript, React
+              </p>
+            </div>
+          </li>
+          <li class="log-entry">
+            <span class="commit-hash" aria-hidden="true">cc33ab7</span>
+            <div>
+              <h2 class="commit-msg">feat: Full Stack Developer @ In Motion</h2>
+              <p class="commit-meta">
+                <time class="date" datetime="2024-06">jun. 2024</time>
+                <span aria-hidden="true"> → </span>
+                <time datetime="2025-02">feb. 2025</time>
+                · Java EE 8, Vue.js 2, MySQL, Docker, AWS
+              </p>
+            </div>
+          </li>
+          <li class="log-entry">
+            <span class="commit-hash" aria-hidden="true">25d8f5d</span>
+            <div>
+              <h2 class="commit-msg">docs: Mentor @ Semillero Latam</h2>
+              <p class="commit-meta">
+                <time class="date" datetime="2024-03">mar. 2024</time>
+                <span aria-hidden="true"> → </span>
+                <time datetime="2024-05">may. 2024</time>
+              </p>
+            </div>
+          </li>
+          <li class="log-entry">
+            <span class="commit-hash" aria-hidden="true">b2da09d</span>
+            <div>
+              <h2 class="commit-msg">init: Java Developer @ Semillero Latam</h2>
+              <p class="commit-meta">
+                <time class="date" datetime="2023-10">oct. 2023</time>
+                <span aria-hidden="true"> → </span>
+                <time datetime="2024-01">ene. 2024</time>
+                · Java 17, Spring Boot, MySQL
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- PROJECTS ──────────────────────────────────────────────────── -->
+      <section class="section fade-in" aria-label="Proyectos">
+        <div class="section-header">
+          <span class="git-cmd" aria-hidden="true">
+            <span class="cmd">git stash list</span>
+            <span class="flag">--projects</span>
+          </span>
+          <div class="divider" role="separator"></div>
+        </div>
+        <ul class="log-list" aria-label="Proyectos open source">
+          <li
+            class="log-entry has-link"
+            data-url="https://github.com/ZairBulos/issuehub"
+            title="Ver repositorio en GitHub"
+            role="button"
+            tabindex="0"
+            aria-label="IssueHub — sistema de gestión de tickets (abre en GitHub)"
+          >
+            <span class="commit-hash" aria-hidden="true">stash@0</span>
+            <div>
+              <h2 class="commit-msg">
+                IssueHub — sistema de gestión de tickets
+              </h2>
+              <p class="commit-meta">
+                Java 21, Spring Boot, Spring Modulith ·
+                <span class="date">open source ↗</span>
+              </p>
+            </div>
+          </li>
+          <li
+            class="log-entry has-link"
+            data-url="https://github.com/ZairBulos/ddd-agent"
+            title="Ver repositorio en GitHub"
+            role="button"
+            tabindex="0"
+            aria-label="DDD Agent — agente de IA para generación de contenido técnico (abre en GitHub)"
+          >
+            <span class="commit-hash" aria-hidden="true">stash@1</span>
+            <div>
+              <h2 class="commit-msg">
+                DDD Agent — agente de IA para generación de contenido técnico
+              </h2>
+              <p class="commit-meta">
+                Java 25, Spring Boot, Embabel Agent Framework ·
+                <span class="date">open source ↗</span>
+              </p>
+            </div>
+          </li>
+          <li
+            class="log-entry has-link"
+            data-url="https://github.com/ZairBulos/ollama-mcp-server"
+            title="Ver repositorio en GitHub"
+            role="button"
+            tabindex="0"
+            aria-label="Ollama MCP — servidor MCP para exponer modelos locales como herramientas (abre en GitHub)"
+          >
+            <span class="commit-hash" aria-hidden="true">stash@2</span>
+            <div>
+              <h2 class="commit-msg">
+                Ollama MCP — servidor MCP para exponer modelos locales como
+                herramientas
+              </h2>
+              <p class="commit-meta">
+                Java 25, MCP Java SDK ·
+                <span class="date">open source ↗</span>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- STACK ─────────────────────────────────────────────────────── -->
+      <section class="section fade-in" aria-label="Stack tecnológico">
+        <div class="section-header">
+          <span class="git-cmd" aria-hidden="true">
+            <span class="cmd">git tag</span>
+            <span class="flag">--list</span>
+            <span class="flag">"stack/*"</span>
+          </span>
+          <div class="divider" role="separator"></div>
+        </div>
+        <ul class="stack-grid" aria-label="Tecnologías">
+          <li class="stack-item">
+            <div class="stack-dot primary" aria-label="nivel: principal"></div>
+            <span class="stack-name">Java</span>
+          </li>
+          <li class="stack-item">
+            <div
+              class="stack-dot secondary"
+              aria-label="nivel: frecuente"
+            ></div>
+            <span class="stack-name">TypeScript</span>
+          </li>
+          <li class="stack-item">
+            <div class="stack-dot primary" aria-label="nivel: principal"></div>
+            <span class="stack-name">Spring Boot</span>
+          </li>
+          <li class="stack-item">
+            <div
+              class="stack-dot secondary"
+              aria-label="nivel: frecuente"
+            ></div>
+            <span class="stack-name">React</span>
+          </li>
+          <li class="stack-item">
+            <div class="stack-dot primary" aria-label="nivel: principal"></div>
+            <span class="stack-name">JPA/Hibernate</span>
+          </li>
+          <li class="stack-item">
+            <div class="stack-dot primary" aria-label="nivel: principal"></div>
+            <span class="stack-name">PostgreSQL</span>
+          </li>
+          <li class="stack-item">
+            <div
+              class="stack-dot secondary"
+              aria-label="nivel: frecuente"
+            ></div>
+            <span class="stack-name">MySQL</span>
+          </li>
+          <li class="stack-item">
+            <div class="stack-dot" aria-label="nivel: conocido"></div>
+            <span class="stack-name">Redis</span>
+          </li>
+          <li class="stack-item">
+            <div class="stack-dot primary" aria-label="nivel: principal"></div>
+            <span class="stack-name">JUnit</span>
+          </li>
+          <li class="stack-item">
+            <div class="stack-dot primary" aria-label="nivel: principal"></div>
+            <span class="stack-name">Mockito</span>
+          </li>
+          <li class="stack-item">
+            <div class="stack-dot" aria-label="nivel: conocido"></div>
+            <span class="stack-name">Testcontainers</span>
+          </li>
+          <li class="stack-item">
+            <div
+              class="stack-dot secondary"
+              aria-label="nivel: frecuente"
+            ></div>
+            <span class="stack-name">SonarQube</span>
+          </li>
+          <li class="stack-item">
+            <div class="stack-dot primary" aria-label="nivel: principal"></div>
+            <span class="stack-name">Maven</span>
+          </li>
+          <li class="stack-item">
+            <div class="stack-dot primary" aria-label="nivel: principal"></div>
+            <span class="stack-name">Docker</span>
+          </li>
+        </ul>
+        <div class="legend" aria-label="Leyenda de niveles">
+          <div class="legend-item">
+            <span class="legend-dot d-primary" aria-hidden="true"></span
+            >principal
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot d-secondary" aria-hidden="true"></span
+            >frecuente
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot d-tertiary" aria-hidden="true"></span
+            >conocido
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT ───────────────────────────────────────────────────── -->
+      <section class="contact-block fade-in" aria-label="Contacto">
+        <div>
+          <p class="contact-text">
+            <span aria-hidden="true">git commit -m "hablemos"</span>
+            <span
+              class="email-display"
+              id="email-display"
+              aria-label="Dirección de email"
+            ></span>
+          </p>
+        </div>
+        <button
+          class="contact-link"
+          id="contact-btn"
+          aria-label="Enviar email a Zair Bulos"
+        >
+          ↗ OPEN CHANNEL
+        </button>
+      </section>
+    </main>
+
+    <!-- STATUS BAR ─────────────────────────────────────────────────── -->
+    <footer class="status-bar" aria-hidden="true">
+      <div class="status-item">
+        <div class="status-dot green"></div>
+        main
+      </div>
+      <div class="status-item">UTF-8</div>
+      <div class="status-item" style="margin-left: auto">
+        zairbulos.github.io
+      </div>
+    </footer>
+
+    <script>
+      (() => {
+        // ─── EMAIL OBFUSCATION ──────────────────────────────────────────────
+        function rot13(s) {
+          return s.replace(/[a-zA-Z]/g, (c) => {
+            const base = c <= "Z" ? 65 : 97;
+            return String.fromCharCode(
+              ((c.charCodeAt(0) - base + 13) % 26) + base,
+            );
+          });
+        }
+
+        const EMAIL_PAYLOAD = [
+          "z",
+          "b",
+          "p",
+          ".",
+          "y",
+          "v",
+          "n",
+          "z",
+          "t",
+          "@",
+          "e",
+          "v",
+          "n",
+          "m",
+          "f",
+          "b",
+          "y",
+          "h",
+          "o",
+        ];
+
+        const TRAPS = ["\u200b", "​", "‌", "‍", "⁠"];
+        const trap = () => TRAPS[Math.floor(Math.random() * TRAPS.length)];
+
+        function decodeEmail(payload) {
+          return payload.slice().reverse().map(rot13).join("");
+        }
+
+        function renderEmail(email) {
+          const container = document.getElementById("email-display");
+          if (!container) return;
+          const frag = document.createDocumentFragment();
+          for (let i = 0; i < email.length; i++) {
+            const real = document.createElement("span");
+            real.textContent = email[i];
+            frag.appendChild(real);
+            if (i < email.length - 1) {
+              const fake = document.createElement("span");
+              fake.setAttribute("aria-hidden", "true");
+              fake.style.cssText = [
+                "font-size:0",
+                "width:0",
+                "height:0",
+                "overflow:hidden",
+                "display:inline",
+                "opacity:0",
+                "position:absolute",
+                "pointer-events:none",
+                "-webkit-user-select:none",
+                "user-select:none",
+              ].join(";");
+              fake.textContent = trap();
+              frag.appendChild(fake);
+            }
+          }
+          container.appendChild(frag);
+        }
+
+        const decoded = decodeEmail(EMAIL_PAYLOAD);
+        renderEmail(decoded);
+
+        document.getElementById("contact-btn").addEventListener("click", () => {
+          const addr = decodeEmail(EMAIL_PAYLOAD);
+          const a = document.createElement("a");
+          a.href = "mailto:" + addr;
+          document.body.appendChild(a);
+          a.click();
+          requestAnimationFrame(() => document.body.removeChild(a));
+        });
+
+        // ─── CLICKABLE PROJECT ENTRIES ──────────────────────────────────────
+        document.querySelectorAll(".log-entry.has-link").forEach((entry) => {
+          const openEntry = () => {
+            const url = entry.dataset.url;
+            if (url) window.open(url, "_blank", "noopener,noreferrer");
+          };
+          entry.addEventListener("click", openEntry);
+          entry.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openEntry();
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
